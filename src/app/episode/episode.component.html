@@ -1,0 +1,10 @@
+<div class="col-4 rCol">
+<img [src]="videoInfo?.snippet?.thumbnails?.medium?.url" />
+<h2> {{ videoInfo?.snippet?.title }} </h2>
+<p style="white-space: pre-line"> {{videoInfo?.snippet?.description }}   </p>
+<hr>
+</div>
+
+<div class="col-8">
+  <markdown dir="rtl" [src]="'../../assets/episodes/'+videoInfo.id+'.md'"></markdown>
+</div>

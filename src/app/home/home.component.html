@@ -1,0 +1,28 @@
+
+<div style="margin:50px;">
+  <p style="margin;"> الصفحة: {{page+1}} من {{ totalPages }}</p>
+  <button (click)="goBack()" class="btn-primary" style="margin:5px" [attr.disabled]="page === 0 ? true : null"> 
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> </span>
+    الصفحة السابقة 
+  </button>
+  <button (click)="getNextPage()" class="btn-primary" style="margin:5px" [attr.disabled]="noNextPage ? true : null"> الصفحة التالية </button>
+</div>
+<div>
+  <div style="margin-bottom:80px"> </div>
+<hr>
+<div style="margin: auto;width:60%;text-align:center;">
+  <div *ngFor="let videoInfo of videosInfo[page]; let i = index" style="margin-bottom: 50px"> 
+    <img [src]="videoInfo.snippet.thumbnails.medium.url" />
+    <h2 (click)="goToEpisode(i, videoInfo.id)" class="pointer"> {{ videoInfo.snippet.title }} </h2>
+    <p style="white-space: pre-line"> {{videoInfo.snippet.description | shortDescription }} ...  </p>
+    <hr>
+  </div>
+
+
+  <p style="text-align:center;"> الصفحة: {{page+1}} من {{ totalPages }}</p>
+  <button (click)="goBack()" class="btn-primary" style="margin:5px" [attr.disabled]="page === 0 ? true : null"> 
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> </span>
+    الصفحة السابقة  
+  </button>
+  <button (click)="getNextPage()" class="btn-primary" style="margin:5px" [attr.disabled]="noNextPage ? true : null"> الصفحة التالية </button>
+</div>
